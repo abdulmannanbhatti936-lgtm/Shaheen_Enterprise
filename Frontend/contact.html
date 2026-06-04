@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Herbal Bliss</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html"><h1>Herbal Bliss</h1></a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="contact-section" style="padding: 60px 0; max-width: 800px; margin: 0 auto; text-align: center;">
+            <h1>Get in Touch</h1>
+            <p>Have questions about our products or your order? We're here to help.</p>
+            
+            <form id="contact-form" class="auth-container" style="max-width: none; text-align: left; margin-top: 40px;">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-full">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = {
+                name: e.target.name.value,
+                email: e.target.email.value,
+                message: e.target.message.value
+            };
+
+            fetch('../Backend/api/contact.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message);
+                if (data.success) e.target.reset();
+            });
+        });
+    </script>
+</body>
+</html>

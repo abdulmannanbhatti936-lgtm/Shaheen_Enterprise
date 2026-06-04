@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Herbal Bliss</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html"><h1>Herbal Bliss</h1></a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="checkout-section" style="padding: 60px 0; max-width: 800px; margin: 0 auto;">
+            <h1>Checkout</h1>
+            <div id="checkout-content" style="margin-top: 30px;">
+                <form id="checkout-form">
+                    <div class="auth-container" style="max-width: none; text-align: left; margin-bottom: 30px;">
+                        <h3>Shipping Information</h3>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Shipping Address</label>
+                            <textarea name="address" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="auth-container" style="max-width: none; text-align: left;">
+                        <h3>Payment (Mock)</h3>
+                        <p style="margin-bottom: 20px; color: var(--text-light);">This is a demonstration. No real payment will be processed.</p>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" disabled>
+                        </div>
+                        <button type="submit" class="btn btn-full">Place Order</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const address = e.target.address.value;
+
+            fetch('../Backend/api/placeOrder.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ address })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    window.location.href = 'index.html';
+                } else {
+                    alert(data.message);
+                    if (data.message.includes('login')) {
+                        window.location.href = '../Backend/auth/login.php';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

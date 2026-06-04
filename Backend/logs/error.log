@@ -1,0 +1,10 @@
+[2026-04-16 22:02:38] [FATAL]: Uncaught Exception: Call to undefined method PDOStatement::fetch_all() in C:\xampp\htdocs\herbal-brand-website\Frontend\journal.php on line 7
+[2026-04-16 22:03:02] [FATAL]: Uncaught Exception: Call to undefined method PDOStatement::fetch_all() in C:\xampp\htdocs\herbal-brand-website\Frontend\journal.php on line 7
+[2026-04-16 22:07:27] [CRITICAL]: PHP Error [2]: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\herbal-brand-website\Frontend\includes\header.php:94) in C:\xampp\htdocs\herbal-brand-website\Frontend\checkout.php on line 6
+[2026-04-16 22:09:29] [CRITICAL]: PHP Error [2]: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\herbal-brand-website\Frontend\includes\header.php:94) in C:\xampp\htdocs\herbal-brand-website\Frontend\checkout.php on line 6
+[2026-04-16 22:12:37] [CRITICAL]: PHP Error [2]: Undefined array key "success" in C:\xampp\htdocs\herbal-brand-website\Backend\admin\login.php on line 19
+[2026-04-16 22:12:50] [CRITICAL]: PHP Error [2]: Undefined array key "success" in C:\xampp\htdocs\herbal-brand-website\Backend\admin\login.php on line 19
+[2026-04-16 22:15:28] [FATAL]: Uncaught Exception: Cannot access offset of type string on string in C:\xampp\htdocs\herbal-brand-website\Backend\admin\dashboard.php on line 19
+[2026-04-16 22:15:47] [FATAL]: Uncaught Exception: Cannot access offset of type string on string in C:\xampp\htdocs\herbal-brand-website\Backend\admin\dashboard.php on line 19
+[2026-04-16 22:17:09] [FATAL]: Uncaught Exception: Cannot access offset of type string on string in C:\xampp\htdocs\herbal-brand-website\Backend\admin\dashboard.php on line 19
+[2026-04-16 22:17:19] [FATAL]: Uncaught Exception: Cannot access offset of type string on string in C:\xampp\htdocs\herbal-brand-website\Backend\admin\dashboard.php on line 19
